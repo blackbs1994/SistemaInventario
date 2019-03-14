@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "_LayoutMy";
+    string controlador = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
+    AccesoDatos.Modelo.Usuarios usuario= new AccesoDatos.Gesionar.UsuariosDB().Obtener(Helper.SessionHelper.GetUser());
+   
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sistema de Control de Activos</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- MetisMenu CSS -->
+    <link href="~/Assets/metisMenu/metisMenu.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Components/Css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    <link href="~/Assets/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="~/Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-home fa-fw"></i> INICIO
+                    </a>
+                    <!-- /.dropdown-tasks -->
+                </li>
+               
+
+                <!-- /.dropdown -->
+                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> hola, @usuario.Nombres @usuario.Apellidos
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="~/Usuario/IniciarSesion"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                        @*<li>
+                            <a href="#"><i class="fa fa-key glyphicon ui-icon-key"></i>Cambiar Contraseña</a>
+                        </li>*@
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="~/Inicio/Index"><i class="fa fa-home fa-fw"></i> Principal</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Administración<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Acceder_Item_Usuarios))
+                                    {
+                                        <li>
+                                            <a href="~/Usuario/Index"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Usuarios</a>
+                                        </li>
+                                    }
+                                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Acceder_Item_Custodios))
+                                    {
+
+                                        <li>
+                                            <a href="~/Usuario/IndexCustodio"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Custodios</a>
+                                        </li>
+                                    }
+
+                                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Acceder_Item_Tipo_Departamento))
+                                    {
+                                        <li>
+                                            <a href="~/TipoDepartamento/Index"><i class="fa fa-building-o fa-fw" style="color:#f0ad4e"></i>Tipo Departamentos</a>
+                                        </li>
+                                    }
+                                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Acceder_Item_Departamento))
+                                    {
+                                        <li>
+                                            <a href="~/Departamento/Index">Departamentos</a>
+                                        </li>
+                                    }
+                                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Acceder_Item_Ubicaciones))
+                                    {
+                                        <li>
+                                            <a href="~/Ubicacion/Index">Ubicaciones</a>
+                                        </li>
+                                    }
+                                </ul>
+                        </li>
+                        <!-- Fin Modulo de Administración -->
+                        <!-- Inicio Modulo de Activos -->
+                        <li>
+                            <a href="#"><i class="fa fa-car fa-fw"></i> Activos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Marca))
+                                {
+                                    <li>
+                                        <a href="~/Marca/Index"> <i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Marca</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Modelo))
+                                {
+                                    <li>
+                                        <a href="~/Modelo/Index"> <i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Modelo</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Tipo_Caracteristica))
+                                {
+                                    <li>
+                                        <a href="~/TipoCaracteristicas/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Tipo Caracteristica</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Caracteristica))
+                                {
+                                    <li>
+                                        <a href="~/Caracteristicas/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Caracteristicas</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Catalogo_Activos))
+                                {
+                                    <li>
+                                        <a href="~/CatalogoProducto/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Catalogo de Activos</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Tipo_Activos))
+                                {
+                                    <li>
+                                        <a href="~/TipoProducto/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Tipo de Activos</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Acceder_Item_Activos))
+                                {
+                                    <li>
+                                        <a href="~/Producto/Index"><i class="fa fa-product-hunt fa-fw" style="color:#f0ad4e"></i>Activos</a>
+                                    </li>
+                                }
+
+                                </ul>
+                        </li>                    
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> Actas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Actas_Puede_Acceder_Item_Acta_Entrega))
+                                {
+                                    <li>
+                                        <a href="~/Acta/GenerarActa"> <i class="fa fa-file-archive-o fa-fw" style="color:#f0ad4e"></i>Generar Acta Entrega</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Actas_Puede_Acceder_Item_Acta_Descargo))
+                                {
+                                    <li>
+                                        <a href="~/BienesPorCustodio/IndexBienesPorCustodio"><i class="fa fa-file-archive-o fa-fw" style="color:#f0ad4e"></i>Generar Acta de Descargo</a>
+                                    </li>
+                                }
+                                @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Actas_Puede_Acceder_Item_Consulta))
+                                {
+                                    @*<li>
+                                        <a href="~/BienesPorCustodio/IndexBienesPorCustodio"><i class="fa fa-book fa-fw" style="color:#f0ad4e"></i>Consultas</a>
+                                    </li>*@
+                                }
+                                </ul>
+                        </li>
+                        <!-- Fin Modulo de actas -->
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div id="divMensajesGestion">
+                @Html.Partial("_MensajesSistema")
+            </div>
+            <div class="row">
+                @RenderBody()
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Assets/jquery/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Assets/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+
+    <script src="~/Assets/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Components/Js/sb-admin-2.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

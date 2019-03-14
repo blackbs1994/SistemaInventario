@@ -1,0 +1,44 @@
+﻿@model List<AccesoDatos.Modelo.Modelos>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-success">Listado Modelos</h2>
+<div class="well well-sm"><a class="btn btn-primary" href="~/Modelo/Create">Nuevo</a></div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>Código</th>
+            <th>Marca</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th colspan="3">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objModelos in Model)
+        {
+            <tr>
+                <td>@objModelos.idModelo</td>
+                <td>@objModelos.Marcas.Marca</td>
+                <td>@objModelos.Modelo</td>
+                <td>@objModelos.Descripcion</td>
+                <td><a class="btn btn-success" href="~/Modelo/DetalleModelo?idModelo=@objModelos.idModelo"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td>                   
+                    <a class="btn btn-info" href="~/Modelo/EditarModelo?idModelo=@objModelos.idModelo"><span class="fa fa-edit"></span></a>
+                </td>
+                <td>
+                    @if (objModelos.idModelo > 0)
+                    {
+                        <a onclick="return confirm('Esta seguro de elimnar este registro?');" class="btn btn-danger" href="~/Modelo/EliminarModelo?idModelo=@objModelos.idModelo"><span class="fa fa-book"></span></a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>

@@ -1,0 +1,24 @@
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.pdb
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll.CodeAnalysisLog.xml
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll.lastcodeanalysissucceeded
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\bin\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\bin\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.pdb

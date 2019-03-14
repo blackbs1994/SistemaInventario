@@ -1,0 +1,51 @@
+﻿@model AccesoDatos.Modelo.Caracteristicas
+@{
+    ViewBag.Title = "Eliminar Caracteristica";
+}
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensajeInicio
+</div>
+
+@*@Html.EditorForModel()*@
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.idCaracteristica)
+    <div class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoCaracteristicas.TipoCaracteristica, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownList("idTipoCaracteristica", ViewBag.ListaTipoCaracteristicas as SelectList, "Seleccione una Característica", htmlAttributes: new { @class = "form-control", @disabled = "disabled" } )
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Caracteristica, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Caracteristica, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <button class="btn btn-danger" type="submit" name="accion" value="eliminar_caracteristica"> Guardar</button>
+            <a class="btn btn-primary" href="~/Caracteristicas/Index"> Cancelar </a>
+            @*@Html.ActionLink("Regresar al Listado", "Index")*@
+        </div>
+    </div>
+
+}
+<div class="text-primary text-success text-center">
+    @ViewBag.MensajeExito;
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>

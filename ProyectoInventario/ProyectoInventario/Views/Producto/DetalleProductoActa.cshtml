@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AccesoDatos.Modelo.Productos>
+@{
+    Layout = "";
+}
+@if (Model.Count() > 0)
+{
+    <div class="modal" id="modalMensajesAlertas">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <center><h3>Mensaje</h3></center>
+        </div>
+        <div class="modal-body">
+            <div id="textoMensajeAlerta">@TempData["productoYaExsiste"]</div>
+        </div>
+        <div class="modal-footer">
+            <center><button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button></center>
+        </div>
+    </div>
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <input type="hidden" id="idProductoSeleccionado" name="idProductoSeleccionado" value="@item.idProducto" />
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.codigoSecob)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.TipoOrigenes.Origen)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.NumeroSerie)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.Modelos.Modelo)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.Modelos.Marcas.Marca)
+            </div>
+            <div class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.CostoAdquisicion)
+            </div>
+            <div class="col-lg-2">
+                <div id="eliminarProducto" name="eliminarProducto" class="btn-link" style="cursor:pointer;" onclick="eliminarProducto(@item.idProducto)">Eliminar</div>
+            </div>
+        </div>
+    }
+}
+else
+{
+
+    if (TempData["mensajeProductoActaNoEncontrado"] != null)
+    {
+        <div class="alert alert-danger" id="divMensajeProductoActaNoEncontrado">
+            <p>
+                @TempData["mensajeProductoActaNoEncontrado"]
+            </p>
+        </div>
+    }
+}

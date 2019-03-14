@@ -1,0 +1,56 @@
+﻿@model AccesoDatos.Modelo.TipoCaracteristicas
+
+
+@{
+    ViewBag.Title = "Modulo Eliminar de Tipo Caracteristica";
+}
+
+<h2>@ViewBag.MensajeInicialActualizar</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                @Html.LabelFor(model => model.idTipoCaracteristica, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.idTipoCaracteristica, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoCaracteristica, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.TipoCaracteristica, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+            <div class="form-actions col-md-offset-2">
+                <input class="btn btn-primary" type="submit" name="btnEliminar" value="Eliminar" />|
+                @Html.ActionLink("Regresar al Listado", "Index")
+            </div>
+
+        </fieldset>
+    </div>
+
+}
+
+<div class="text-primary text-success text-center">
+    @ViewBag.MensajeExito;
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>
+<script type="text/javascript">
+    function validarCampoCodigo() {
+        var codigo = document.getElementById("IdPerfil");
+        if (codigo.value != null) {
+            codigo.disabled = true;
+        }
+    }
+
+</script>
+

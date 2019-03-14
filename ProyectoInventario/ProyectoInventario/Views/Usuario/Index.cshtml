@@ -1,0 +1,79 @@
+﻿
+@model List<AccesoDatos.Modelo.Usuarios>
+@{
+    ViewBag.Title = "Lista de Usuario";
+}
+
+
+<h2 class="text-center text-success">Listado de Usuarios</h2>
+<div class="well well-sm">
+    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Crear_Nuevo_Registro))
+    {
+        <a class="btn btn-primary" href="~/Usuario/Create">Nuevo</a>
+    }
+</div>
+<table class="table table-hover table-striped" id="myTableUsuario">
+    <thead>
+        <tr class="bg-primary">
+            <th>Cedula</th>
+            <th>Usuario</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Departamento</th>
+            <th>Ubicacion</th>
+            <th>Perfil</th>
+            <th></th>
+            <th></th>
+            <th>Operaciones</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objUsuario in Model)
+        {
+            <tr>
+                <td>@objUsuario.Cedula</td>
+                <td>@objUsuario.Usuario</td>
+                <td>@objUsuario.Nombres</td>
+                <td>@objUsuario.Apellidos</td>
+                <td>@objUsuario.Departamentos.Departamento</td>
+                <td>@objUsuario.Ubicaciones.Ubicacion</td>
+                <td>@objUsuario.Perfiles.Perfil</td>
+
+                <td><a class="btn btn-success" href="~/Usuario/FindUsuario/@objUsuario.idUsuario"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Editar_Registro))
+                    {
+                        <a class="btn btn-info" href="~/Usuario/Update/@objUsuario.idUsuario"><span class="fa fa-edit"></span></a>
+                    }
+                </td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Administracion_Puede_Eliminar_Registro))
+                    {
+                        if (objUsuario.idUsuario > 0)
+                        {
+                            <a onclick="return confirm('Esta seguro de elimnar este registro?');" class="btn btn-danger" href="~/Usuario/Delete/@objUsuario.idUsuario"><span class="fa fa-book"></span></a>
+                        }
+                    }
+                </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<link href="~/Assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Assets/jquery/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTableUsuario").DataTable();
+        });
+    </script>
+}
+
+
+
+

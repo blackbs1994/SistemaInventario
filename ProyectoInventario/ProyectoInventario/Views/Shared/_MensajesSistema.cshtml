@@ -1,0 +1,19 @@
+﻿@{
+    if (TempData["mensajeExitoso"] != null)
+    {
+        <div class="alert alert-success">
+            <p>
+                @TempData["mensajeExitoso"]
+            </p>
+        </div>
+    }
+    else if (TempData["mensajeError"] != null)
+    {
+        <div class="alert alert-danger">
+            <p>
+                @TempData["mensajeError"]
+            </p>
+        </div>
+    }
+}
+

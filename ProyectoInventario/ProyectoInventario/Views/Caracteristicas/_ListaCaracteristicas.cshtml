@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AccesoDatos.Modelo.Caracteristicas>
+@{
+    Layout = "";
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <input type="hidden" id="idCaracteristicaSeleccionadaTabla" name="idCaracteristicaSeleccionadaTabla" value="@item.idCaracteristica" />
+        <div class="col-lg-4">
+            @Html.DisplayFor(modelItem => item.TipoCaracteristicas.TipoCaracteristica)
+        </div>
+        <div class="col-lg-6">
+            @Html.DisplayFor(modelItem => item.Caracteristica)
+        </div>
+        <div class="col-lg-2">
+            
+                <div id="eliminarCaracteristica" name="eliminarCaracteristica" class="btn btn-danger" style="cursor:pointer;" onclick="eliminarCaracteristica(@item.idCaracteristica)">Eliminar</div>
+            
+            </div>
+            
+    </div>
+}

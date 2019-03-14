@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08c7d7f87c4e43c3bdfe7fe9937ac5f6" Name="Diagram1">
+        <EntityTypeShape EntityType="inventarioModel.ActasProductosUsuarios" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Caracteristicas" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.CatalogoProductos" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Departamentos" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.DetalleActaProductos" Width="2.75" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.DetalleProductos" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Marcas" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Modelos" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Perfiles" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Productos" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.TipoCaracteristicas" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.TipoDepartamentos" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.TipoOrigenes" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.TipoProductos" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Ubicaciones" Width="1.5" PointX="0.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventarioModel.Usuarios" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <AssociationConnector Association="inventarioModel.FK_ACTASPRO_REFERENCE_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.FK_DETALLEA_REFERENCE_ACTASPRO" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.caracteristicas_fk_Caracteristicas_TipoCaracteristica1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.detalleproductos_fk_Detalle_Producto_Caracteristicas1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.tipoproductos_fk_TipoProductos_CatalogoProductos1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.departamentos_fk_Departamentos_TipoDepartamentos1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.usuarios_fk_Usuario_Departamentos1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.FK_DETALLEA_REFERENCE_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.detalleproductos_fk_Detalle_Producto_Producto1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.modelos_fk_Modelo_Marca1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.productos_fk_Productos_Modelos1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.usuarios_fk_Usuario_Perfil1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.productos_fk_Producto_TipoOrigen" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.productos_fk_Productos_TipoProductos1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventarioModel.usuarios_fk_Usuarios_Ubicaciones1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="inventarioModel.Permiso" Width="1.5" PointX="0.75" PointY="10.25" />
+        <AssociationConnector Association="inventarioModel.PermisoDenegadoPorRol" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

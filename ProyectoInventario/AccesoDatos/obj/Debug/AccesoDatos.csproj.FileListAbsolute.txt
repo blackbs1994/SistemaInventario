@@ -1,0 +1,134 @@
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\patri\Source\Repos\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Projectos Visual Studio\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Descargas\ProyectoInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Projectos Visual Studio\ProyectoInventarioV2\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\ProyectsVisualStudio\Varios\Inventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.pdb
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\andres\Documentos\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\andres\Escritorio\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Helper.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\Helper.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\Helper.pdb
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.xml
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\AccesoDatos\obj\Debug\AccesoDatos.pdb

@@ -1,0 +1,1151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="inventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActasProductosUsuarios">
+          <Key>
+            <PropertyRef Name="IdActasProductosUsuarios" />
+          </Key>
+          <Property Name="IdActasProductosUsuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caracteristicas">
+          <Key>
+            <PropertyRef Name="idCaracteristica" />
+          </Key>
+          <Property Name="idCaracteristica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTipoCaracteristica" Type="int" Nullable="false" />
+          <Property Name="Caracteristica" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CatalogoProductos">
+          <Key>
+            <PropertyRef Name="idCatalogoProducto" />
+          </Key>
+          <Property Name="idCatalogoProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatalogoProducto" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTipoDepartamento" Type="int" Nullable="false" />
+          <Property Name="Departamento" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DetalleActaProductos">
+          <Key>
+            <PropertyRef Name="idDetalleActaProductos" />
+          </Key>
+          <Property Name="idDetalleActaProductos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="IdActasProductosUsuarios" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleProductos">
+          <Key>
+            <PropertyRef Name="idDetalleProducto" />
+          </Key>
+          <Property Name="idDetalleProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCaracteristica" Type="int" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marca" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Modelos">
+          <Key>
+            <PropertyRef Name="idModelo" />
+          </Key>
+          <Property Name="idModelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMarca" Type="int" Nullable="false" />
+          <Property Name="Modelo" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perfil" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="idPermiso" />
+          </Key>
+          <Property Name="idPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modulo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermisoDenegadoPorRol">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+            <PropertyRef Name="idPermiso" />
+          </Key>
+          <Property Name="idPerfil" Type="int" Nullable="false" />
+          <Property Name="idPermiso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTipoOrigen" Type="int" Nullable="false" />
+          <Property Name="idModelo" Type="int" Nullable="false" />
+          <Property Name="idTipoProducto" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" />
+          <Property Name="fechaCompra" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="codigoSecob" Type="nvarchar(max)" />
+          <Property Name="codigoFinazas" Type="nvarchar(max)" />
+          <Property Name="ContratoAdquisicion" Type="nvarchar(max)" />
+          <Property Name="CostoAdquisicion" Type="money" />
+          <Property Name="NumeroSerie" Type="nvarchar(max)" />
+          <Property Name="Estado" Type="smallint" Nullable="false" />
+          <Property Name="Observacion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TipoCaracteristicas">
+          <Key>
+            <PropertyRef Name="idTipoCaracteristica" />
+          </Key>
+          <Property Name="idTipoCaracteristica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCaracteristica" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TipoDepartamentos">
+          <Key>
+            <PropertyRef Name="idTipo_Departamento" />
+          </Key>
+          <Property Name="idTipo_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoDepartamento" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TipoOrigenes">
+          <Key>
+            <PropertyRef Name="idTipoOrigen" />
+          </Key>
+          <Property Name="idTipoOrigen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Origen" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TipoProductos">
+          <Key>
+            <PropertyRef Name="idTipoProducto" />
+          </Key>
+          <Property Name="idTipoProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCatalogoProducto" Type="int" Nullable="false" />
+          <Property Name="TipoProducto" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ubicaciones">
+          <Key>
+            <PropertyRef Name="idUbicacion" />
+          </Key>
+          <Property Name="idUbicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ubicacion" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDepartamento" Type="int" Nullable="false" />
+          <Property Name="idPerfil" Type="int" Nullable="false" />
+          <Property Name="idUbicacion" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar(max)" />
+          <Property Name="Cedula" Type="nvarchar(max)" />
+          <Property Name="Nombres" Type="nvarchar(max)" />
+          <Property Name="Apellidos" Type="nvarchar(max)" />
+          <Property Name="Correo" Type="nvarchar(max)" />
+          <Property Name="Direccion" Type="nvarchar(max)" />
+          <Property Name="Extension" Type="nvarchar(max)" />
+          <Property Name="Activar" Type="smallint" />
+          <Property Name="Observacion" Type="nvarchar(max)" />
+          <Property Name="Contrasenia" Type="nvarchar(max)" />
+          <Property Name="ConfirContrasenia" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="caracteristicas$fk_Caracteristicas_TipoCaracteristica1">
+          <End Role="TipoCaracteristicas" Type="Self.TipoCaracteristicas" Multiplicity="1" />
+          <End Role="Caracteristicas" Type="Self.Caracteristicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCaracteristicas">
+              <PropertyRef Name="idTipoCaracteristica" />
+            </Principal>
+            <Dependent Role="Caracteristicas">
+              <PropertyRef Name="idTipoCaracteristica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamentos$fk_Departamentos_TipoDepartamentos1">
+          <End Role="TipoDepartamentos" Type="Self.TipoDepartamentos" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDepartamentos">
+              <PropertyRef Name="idTipo_Departamento" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="idTipoDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalleproductos$fk_Detalle_Producto_Caracteristicas1">
+          <End Role="Caracteristicas" Type="Self.Caracteristicas" Multiplicity="1" />
+          <End Role="DetalleProductos" Type="Self.DetalleProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caracteristicas">
+              <PropertyRef Name="idCaracteristica" />
+            </Principal>
+            <Dependent Role="DetalleProductos">
+              <PropertyRef Name="idCaracteristica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalleproductos$fk_Detalle_Producto_Producto1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="DetalleProductos" Type="Self.DetalleProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="DetalleProductos">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACTASPRO_REFERENCE_USUARIOS">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="ActasProductosUsuarios" Type="Self.ActasProductosUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="ActasProductosUsuarios">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEA_REFERENCE_ACTASPRO">
+          <End Role="ActasProductosUsuarios" Type="Self.ActasProductosUsuarios" Multiplicity="1" />
+          <End Role="DetalleActaProductos" Type="Self.DetalleActaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActasProductosUsuarios">
+              <PropertyRef Name="IdActasProductosUsuarios" />
+            </Principal>
+            <Dependent Role="DetalleActaProductos">
+              <PropertyRef Name="IdActasProductosUsuarios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEA_REFERENCE_PRODUCTO">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="DetalleActaProductos" Type="Self.DetalleActaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="DetalleActaProductos">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisoDenegadoPorRol_Permiso">
+          <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
+          <End Role="PermisoDenegadoPorRol" Type="Self.PermisoDenegadoPorRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permiso">
+              <PropertyRef Name="idPermiso" />
+            </Principal>
+            <Dependent Role="PermisoDenegadoPorRol">
+              <PropertyRef Name="idPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisoDenegadoPorRol_Rol">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="PermisoDenegadoPorRol" Type="Self.PermisoDenegadoPorRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="PermisoDenegadoPorRol">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="modelos$fk_Modelo_Marca1">
+          <End Role="Marcas" Type="Self.Marcas" Multiplicity="1" />
+          <End Role="Modelos" Type="Self.Modelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="Modelos">
+              <PropertyRef Name="idMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos$fk_Producto_TipoOrigen">
+          <End Role="TipoOrigenes" Type="Self.TipoOrigenes" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoOrigenes">
+              <PropertyRef Name="idTipoOrigen" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idTipoOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos$fk_Productos_Modelos1">
+          <End Role="Modelos" Type="Self.Modelos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelos">
+              <PropertyRef Name="idModelo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos$fk_Productos_TipoProductos1">
+          <End Role="TipoProductos" Type="Self.TipoProductos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProductos">
+              <PropertyRef Name="idTipoProducto" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idTipoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tipoproductos$fk_TipoProductos_CatalogoProductos1">
+          <End Role="CatalogoProductos" Type="Self.CatalogoProductos" Multiplicity="1" />
+          <End Role="TipoProductos" Type="Self.TipoProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoProductos">
+              <PropertyRef Name="idCatalogoProducto" />
+            </Principal>
+            <Dependent Role="TipoProductos">
+              <PropertyRef Name="idCatalogoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios$fk_Usuario_Departamentos1">
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios$fk_Usuario_Perfil1">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios$fk_Usuarios_Ubicaciones1">
+          <End Role="Ubicaciones" Type="Self.Ubicaciones" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicaciones">
+              <PropertyRef Name="idUbicacion" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventarioModelStoreContainer">
+          <EntitySet Name="ActasProductosUsuarios" EntityType="Self.ActasProductosUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caracteristicas" EntityType="Self.Caracteristicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoProductos" EntityType="Self.CatalogoProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleActaProductos" EntityType="Self.DetalleActaProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleProductos" EntityType="Self.DetalleProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modelos" EntityType="Self.Modelos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permiso" EntityType="Self.Permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisoDenegadoPorRol" EntityType="Self.PermisoDenegadoPorRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCaracteristicas" EntityType="Self.TipoCaracteristicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDepartamentos" EntityType="Self.TipoDepartamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoOrigenes" EntityType="Self.TipoOrigenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoProductos" EntityType="Self.TipoProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ubicaciones" EntityType="Self.Ubicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="caracteristicas$fk_Caracteristicas_TipoCaracteristica1" Association="Self.caracteristicas$fk_Caracteristicas_TipoCaracteristica1">
+            <End Role="TipoCaracteristicas" EntitySet="TipoCaracteristicas" />
+            <End Role="Caracteristicas" EntitySet="Caracteristicas" />
+          </AssociationSet>
+          <AssociationSet Name="departamentos$fk_Departamentos_TipoDepartamentos1" Association="Self.departamentos$fk_Departamentos_TipoDepartamentos1">
+            <End Role="TipoDepartamentos" EntitySet="TipoDepartamentos" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="detalleproductos$fk_Detalle_Producto_Caracteristicas1" Association="Self.detalleproductos$fk_Detalle_Producto_Caracteristicas1">
+            <End Role="Caracteristicas" EntitySet="Caracteristicas" />
+            <End Role="DetalleProductos" EntitySet="DetalleProductos" />
+          </AssociationSet>
+          <AssociationSet Name="detalleproductos$fk_Detalle_Producto_Producto1" Association="Self.detalleproductos$fk_Detalle_Producto_Producto1">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleProductos" EntitySet="DetalleProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACTASPRO_REFERENCE_USUARIOS" Association="Self.FK_ACTASPRO_REFERENCE_USUARIOS">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ActasProductosUsuarios" EntitySet="ActasProductosUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEA_REFERENCE_ACTASPRO" Association="Self.FK_DETALLEA_REFERENCE_ACTASPRO">
+            <End Role="ActasProductosUsuarios" EntitySet="ActasProductosUsuarios" />
+            <End Role="DetalleActaProductos" EntitySet="DetalleActaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEA_REFERENCE_PRODUCTO" Association="Self.FK_DETALLEA_REFERENCE_PRODUCTO">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleActaProductos" EntitySet="DetalleActaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisoDenegadoPorRol_Permiso" Association="Self.FK_PermisoDenegadoPorRol_Permiso">
+            <End Role="Permiso" EntitySet="Permiso" />
+            <End Role="PermisoDenegadoPorRol" EntitySet="PermisoDenegadoPorRol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisoDenegadoPorRol_Rol" Association="Self.FK_PermisoDenegadoPorRol_Rol">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="PermisoDenegadoPorRol" EntitySet="PermisoDenegadoPorRol" />
+          </AssociationSet>
+          <AssociationSet Name="modelos$fk_Modelo_Marca1" Association="Self.modelos$fk_Modelo_Marca1">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Modelos" EntitySet="Modelos" />
+          </AssociationSet>
+          <AssociationSet Name="productos$fk_Producto_TipoOrigen" Association="Self.productos$fk_Producto_TipoOrigen">
+            <End Role="TipoOrigenes" EntitySet="TipoOrigenes" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="productos$fk_Productos_Modelos1" Association="Self.productos$fk_Productos_Modelos1">
+            <End Role="Modelos" EntitySet="Modelos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="productos$fk_Productos_TipoProductos1" Association="Self.productos$fk_Productos_TipoProductos1">
+            <End Role="TipoProductos" EntitySet="TipoProductos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="tipoproductos$fk_TipoProductos_CatalogoProductos1" Association="Self.tipoproductos$fk_TipoProductos_CatalogoProductos1">
+            <End Role="CatalogoProductos" EntitySet="CatalogoProductos" />
+            <End Role="TipoProductos" EntitySet="TipoProductos" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios$fk_Usuario_Departamentos1" Association="Self.usuarios$fk_Usuario_Departamentos1">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios$fk_Usuario_Perfil1" Association="Self.usuarios$fk_Usuario_Perfil1">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios$fk_Usuarios_Ubicaciones1" Association="Self.usuarios$fk_Usuarios_Ubicaciones1">
+            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inventarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActasProductosUsuarios">
+          <Key>
+            <PropertyRef Name="IdActasProductosUsuarios" />
+          </Key>
+          <Property Name="IdActasProductosUsuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_ACTASPRO_REFERENCE_USUARIOS" FromRole="ActasProductosUsuarios" ToRole="Usuarios" />
+          <NavigationProperty Name="DetalleActaProductos" Relationship="Self.FK_DETALLEA_REFERENCE_ACTASPRO" FromRole="ActasProductosUsuarios" ToRole="DetalleActaProductos" />
+        </EntityType>
+        <EntityType Name="Caracteristicas">
+          <Key>
+            <PropertyRef Name="idCaracteristica" />
+          </Key>
+          <Property Name="idCaracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoCaracteristica" Type="Int32" Nullable="false" />
+          <Property Name="Caracteristica" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoCaracteristicas" Relationship="Self.caracteristicas_fk_Caracteristicas_TipoCaracteristica1" FromRole="Caracteristicas" ToRole="TipoCaracteristicas" />
+          <NavigationProperty Name="DetalleProductos" Relationship="Self.detalleproductos_fk_Detalle_Producto_Caracteristicas1" FromRole="Caracteristicas" ToRole="DetalleProductos" />
+        </EntityType>
+        <EntityType Name="CatalogoProductos">
+          <Key>
+            <PropertyRef Name="idCatalogoProducto" />
+          </Key>
+          <Property Name="idCatalogoProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatalogoProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoProductos" Relationship="Self.tipoproductos_fk_TipoProductos_CatalogoProductos1" FromRole="CatalogoProductos" ToRole="TipoProductos" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="Departamento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoDepartamentos" Relationship="Self.departamentos_fk_Departamentos_TipoDepartamentos1" FromRole="Departamentos" ToRole="TipoDepartamentos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.usuarios_fk_Usuario_Departamentos1" FromRole="Departamentos" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="DetalleActaProductos">
+          <Key>
+            <PropertyRef Name="idDetalleActaProductos" />
+          </Key>
+          <Property Name="idDetalleActaProductos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="IdActasProductosUsuarios" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActasProductosUsuarios" Relationship="Self.FK_DETALLEA_REFERENCE_ACTASPRO" FromRole="DetalleActaProductos" ToRole="ActasProductosUsuarios" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_DETALLEA_REFERENCE_PRODUCTO" FromRole="DetalleActaProductos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="DetalleProductos">
+          <Key>
+            <PropertyRef Name="idDetalleProducto" />
+          </Key>
+          <Property Name="idDetalleProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCaracteristica" Type="Int32" Nullable="false" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Caracteristicas" Relationship="Self.detalleproductos_fk_Detalle_Producto_Caracteristicas1" FromRole="DetalleProductos" ToRole="Caracteristicas" />
+          <NavigationProperty Name="Productos" Relationship="Self.detalleproductos_fk_Detalle_Producto_Producto1" FromRole="DetalleProductos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marca" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modelos" Relationship="Self.modelos_fk_Modelo_Marca1" FromRole="Marcas" ToRole="Modelos" />
+        </EntityType>
+        <EntityType Name="Modelos">
+          <Key>
+            <PropertyRef Name="idModelo" />
+          </Key>
+          <Property Name="idModelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMarca" Type="Int32" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Marcas" Relationship="Self.modelos_fk_Modelo_Marca1" FromRole="Modelos" ToRole="Marcas" />
+          <NavigationProperty Name="Productos" Relationship="Self.productos_fk_Productos_Modelos1" FromRole="Modelos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.usuarios_fk_Usuario_Perfil1" FromRole="Perfiles" ToRole="Usuarios" />
+          <NavigationProperty Name="Permiso" Relationship="inventarioModel.PermisoDenegadoPorRol" FromRole="Perfiles" ToRole="Permiso" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoOrigen" Type="Int32" Nullable="false" />
+          <Property Name="idModelo" Type="Int32" Nullable="false" />
+          <Property Name="idTipoProducto" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaCompra" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="codigoSecob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="codigoFinazas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContratoAdquisicion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CostoAdquisicion" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NumeroSerie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Int16" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DetalleActaProductos" Relationship="Self.FK_DETALLEA_REFERENCE_PRODUCTO" FromRole="Productos" ToRole="DetalleActaProductos" />
+          <NavigationProperty Name="DetalleProductos" Relationship="Self.detalleproductos_fk_Detalle_Producto_Producto1" FromRole="Productos" ToRole="DetalleProductos" />
+          <NavigationProperty Name="Modelos" Relationship="Self.productos_fk_Productos_Modelos1" FromRole="Productos" ToRole="Modelos" />
+          <NavigationProperty Name="TipoOrigenes" Relationship="Self.productos_fk_Producto_TipoOrigen" FromRole="Productos" ToRole="TipoOrigenes" />
+          <NavigationProperty Name="TipoProductos" Relationship="Self.productos_fk_Productos_TipoProductos1" FromRole="Productos" ToRole="TipoProductos" />
+        </EntityType>
+        <EntityType Name="TipoCaracteristicas">
+          <Key>
+            <PropertyRef Name="idTipoCaracteristica" />
+          </Key>
+          <Property Name="idTipoCaracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCaracteristica" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Caracteristicas" Relationship="Self.caracteristicas_fk_Caracteristicas_TipoCaracteristica1" FromRole="TipoCaracteristicas" ToRole="Caracteristicas" />
+        </EntityType>
+        <EntityType Name="TipoDepartamentos">
+          <Key>
+            <PropertyRef Name="idTipo_Departamento" />
+          </Key>
+          <Property Name="idTipo_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoDepartamento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Departamentos" Relationship="Self.departamentos_fk_Departamentos_TipoDepartamentos1" FromRole="TipoDepartamentos" ToRole="Departamentos" />
+        </EntityType>
+        <EntityType Name="TipoOrigenes">
+          <Key>
+            <PropertyRef Name="idTipoOrigen" />
+          </Key>
+          <Property Name="idTipoOrigen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Productos" Relationship="Self.productos_fk_Producto_TipoOrigen" FromRole="TipoOrigenes" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="TipoProductos">
+          <Key>
+            <PropertyRef Name="idTipoProducto" />
+          </Key>
+          <Property Name="idTipoProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCatalogoProducto" Type="Int32" Nullable="false" />
+          <Property Name="TipoProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatalogoProductos" Relationship="Self.tipoproductos_fk_TipoProductos_CatalogoProductos1" FromRole="TipoProductos" ToRole="CatalogoProductos" />
+          <NavigationProperty Name="Productos" Relationship="Self.productos_fk_Productos_TipoProductos1" FromRole="TipoProductos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Ubicaciones">
+          <Key>
+            <PropertyRef Name="idUbicacion" />
+          </Key>
+          <Property Name="idUbicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ubicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.usuarios_fk_Usuarios_Ubicaciones1" FromRole="Ubicaciones" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="idPerfil" Type="Int32" Nullable="false" />
+          <Property Name="idUbicacion" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activar" Type="Int16" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contrasenia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirContrasenia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActasProductosUsuarios" Relationship="Self.FK_ACTASPRO_REFERENCE_USUARIOS" FromRole="Usuarios" ToRole="ActasProductosUsuarios" />
+          <NavigationProperty Name="Departamentos" Relationship="Self.usuarios_fk_Usuario_Departamentos1" FromRole="Usuarios" ToRole="Departamentos" />
+          <NavigationProperty Name="Perfiles" Relationship="Self.usuarios_fk_Usuario_Perfil1" FromRole="Usuarios" ToRole="Perfiles" />
+          <NavigationProperty Name="Ubicaciones" Relationship="Self.usuarios_fk_Usuarios_Ubicaciones1" FromRole="Usuarios" ToRole="Ubicaciones" />
+        </EntityType>
+        <Association Name="FK_ACTASPRO_REFERENCE_USUARIOS">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="ActasProductosUsuarios" Type="Self.ActasProductosUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="ActasProductosUsuarios">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEA_REFERENCE_ACTASPRO">
+          <End Role="ActasProductosUsuarios" Type="Self.ActasProductosUsuarios" Multiplicity="1" />
+          <End Role="DetalleActaProductos" Type="Self.DetalleActaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActasProductosUsuarios">
+              <PropertyRef Name="IdActasProductosUsuarios" />
+            </Principal>
+            <Dependent Role="DetalleActaProductos">
+              <PropertyRef Name="IdActasProductosUsuarios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="caracteristicas_fk_Caracteristicas_TipoCaracteristica1">
+          <End Role="TipoCaracteristicas" Type="Self.TipoCaracteristicas" Multiplicity="1" />
+          <End Role="Caracteristicas" Type="Self.Caracteristicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCaracteristicas">
+              <PropertyRef Name="idTipoCaracteristica" />
+            </Principal>
+            <Dependent Role="Caracteristicas">
+              <PropertyRef Name="idTipoCaracteristica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalleproductos_fk_Detalle_Producto_Caracteristicas1">
+          <End Role="Caracteristicas" Type="Self.Caracteristicas" Multiplicity="1" />
+          <End Role="DetalleProductos" Type="Self.DetalleProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caracteristicas">
+              <PropertyRef Name="idCaracteristica" />
+            </Principal>
+            <Dependent Role="DetalleProductos">
+              <PropertyRef Name="idCaracteristica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tipoproductos_fk_TipoProductos_CatalogoProductos1">
+          <End Role="CatalogoProductos" Type="Self.CatalogoProductos" Multiplicity="1" />
+          <End Role="TipoProductos" Type="Self.TipoProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoProductos">
+              <PropertyRef Name="idCatalogoProducto" />
+            </Principal>
+            <Dependent Role="TipoProductos">
+              <PropertyRef Name="idCatalogoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamentos_fk_Departamentos_TipoDepartamentos1">
+          <End Role="TipoDepartamentos" Type="Self.TipoDepartamentos" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDepartamentos">
+              <PropertyRef Name="idTipo_Departamento" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="idTipoDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios_fk_Usuario_Departamentos1">
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEA_REFERENCE_PRODUCTO">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="DetalleActaProductos" Type="Self.DetalleActaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="DetalleActaProductos">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalleproductos_fk_Detalle_Producto_Producto1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="DetalleProductos" Type="Self.DetalleProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="DetalleProductos">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="modelos_fk_Modelo_Marca1">
+          <End Role="Marcas" Type="Self.Marcas" Multiplicity="1" />
+          <End Role="Modelos" Type="Self.Modelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="Modelos">
+              <PropertyRef Name="idMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos_fk_Productos_Modelos1">
+          <End Role="Modelos" Type="Self.Modelos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelos">
+              <PropertyRef Name="idModelo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios_fk_Usuario_Perfil1">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos_fk_Producto_TipoOrigen">
+          <End Role="TipoOrigenes" Type="Self.TipoOrigenes" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoOrigenes">
+              <PropertyRef Name="idTipoOrigen" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idTipoOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productos_fk_Productos_TipoProductos1">
+          <End Role="TipoProductos" Type="Self.TipoProductos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProductos">
+              <PropertyRef Name="idTipoProducto" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="idTipoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios_fk_Usuarios_Ubicaciones1">
+          <End Role="Ubicaciones" Type="Self.Ubicaciones" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubicaciones">
+              <PropertyRef Name="idUbicacion" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventarioEntidadesDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActasProductosUsuarios" EntityType="Self.ActasProductosUsuarios" />
+          <EntitySet Name="Caracteristicas" EntityType="Self.Caracteristicas" />
+          <EntitySet Name="CatalogoProductos" EntityType="Self.CatalogoProductos" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
+          <EntitySet Name="DetalleActaProductos" EntityType="Self.DetalleActaProductos" />
+          <EntitySet Name="DetalleProductos" EntityType="Self.DetalleProductos" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" />
+          <EntitySet Name="Modelos" EntityType="Self.Modelos" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="TipoCaracteristicas" EntityType="Self.TipoCaracteristicas" />
+          <EntitySet Name="TipoDepartamentos" EntityType="Self.TipoDepartamentos" />
+          <EntitySet Name="TipoOrigenes" EntityType="Self.TipoOrigenes" />
+          <EntitySet Name="TipoProductos" EntityType="Self.TipoProductos" />
+          <EntitySet Name="Ubicaciones" EntityType="Self.Ubicaciones" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_ACTASPRO_REFERENCE_USUARIOS" Association="Self.FK_ACTASPRO_REFERENCE_USUARIOS">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ActasProductosUsuarios" EntitySet="ActasProductosUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEA_REFERENCE_ACTASPRO" Association="Self.FK_DETALLEA_REFERENCE_ACTASPRO">
+            <End Role="ActasProductosUsuarios" EntitySet="ActasProductosUsuarios" />
+            <End Role="DetalleActaProductos" EntitySet="DetalleActaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="caracteristicas_fk_Caracteristicas_TipoCaracteristica1" Association="Self.caracteristicas_fk_Caracteristicas_TipoCaracteristica1">
+            <End Role="TipoCaracteristicas" EntitySet="TipoCaracteristicas" />
+            <End Role="Caracteristicas" EntitySet="Caracteristicas" />
+          </AssociationSet>
+          <AssociationSet Name="detalleproductos_fk_Detalle_Producto_Caracteristicas1" Association="Self.detalleproductos_fk_Detalle_Producto_Caracteristicas1">
+            <End Role="Caracteristicas" EntitySet="Caracteristicas" />
+            <End Role="DetalleProductos" EntitySet="DetalleProductos" />
+          </AssociationSet>
+          <AssociationSet Name="tipoproductos_fk_TipoProductos_CatalogoProductos1" Association="Self.tipoproductos_fk_TipoProductos_CatalogoProductos1">
+            <End Role="CatalogoProductos" EntitySet="CatalogoProductos" />
+            <End Role="TipoProductos" EntitySet="TipoProductos" />
+          </AssociationSet>
+          <AssociationSet Name="departamentos_fk_Departamentos_TipoDepartamentos1" Association="Self.departamentos_fk_Departamentos_TipoDepartamentos1">
+            <End Role="TipoDepartamentos" EntitySet="TipoDepartamentos" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_fk_Usuario_Departamentos1" Association="Self.usuarios_fk_Usuario_Departamentos1">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEA_REFERENCE_PRODUCTO" Association="Self.FK_DETALLEA_REFERENCE_PRODUCTO">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleActaProductos" EntitySet="DetalleActaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="detalleproductos_fk_Detalle_Producto_Producto1" Association="Self.detalleproductos_fk_Detalle_Producto_Producto1">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleProductos" EntitySet="DetalleProductos" />
+          </AssociationSet>
+          <AssociationSet Name="modelos_fk_Modelo_Marca1" Association="Self.modelos_fk_Modelo_Marca1">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Modelos" EntitySet="Modelos" />
+          </AssociationSet>
+          <AssociationSet Name="productos_fk_Productos_Modelos1" Association="Self.productos_fk_Productos_Modelos1">
+            <End Role="Modelos" EntitySet="Modelos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_fk_Usuario_Perfil1" Association="Self.usuarios_fk_Usuario_Perfil1">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="productos_fk_Producto_TipoOrigen" Association="Self.productos_fk_Producto_TipoOrigen">
+            <End Role="TipoOrigenes" EntitySet="TipoOrigenes" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="productos_fk_Productos_TipoProductos1" Association="Self.productos_fk_Productos_TipoProductos1">
+            <End Role="TipoProductos" EntitySet="TipoProductos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_fk_Usuarios_Ubicaciones1" Association="Self.usuarios_fk_Usuarios_Ubicaciones1">
+            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Permiso" EntityType="inventarioModel.Permiso" />
+          <AssociationSet Name="PermisoDenegadoPorRol" Association="inventarioModel.PermisoDenegadoPorRol">
+            <End Role="Permiso" EntitySet="Permiso" />
+            <End Role="Perfiles" EntitySet="Perfiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="idPermiso" />
+          </Key>
+          <Property Name="idPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modulo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Perfiles" Relationship="inventarioModel.PermisoDenegadoPorRol" FromRole="Permiso" ToRole="Perfiles" />
+        </EntityType>
+        <Association Name="PermisoDenegadoPorRol">
+          <End Type="inventarioModel.Permiso" Role="Permiso" Multiplicity="*" />
+          <End Type="inventarioModel.Perfiles" Role="Perfiles" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inventarioModelStoreContainer" CdmEntityContainer="inventarioEntidadesDB">
+          <EntitySetMapping Name="ActasProductosUsuarios">
+            <EntityTypeMapping TypeName="inventarioModel.ActasProductosUsuarios">
+              <MappingFragment StoreEntitySet="ActasProductosUsuarios">
+                <ScalarProperty Name="IdActasProductosUsuarios" ColumnName="IdActasProductosUsuarios" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caracteristicas">
+            <EntityTypeMapping TypeName="inventarioModel.Caracteristicas">
+              <MappingFragment StoreEntitySet="Caracteristicas">
+                <ScalarProperty Name="idCaracteristica" ColumnName="idCaracteristica" />
+                <ScalarProperty Name="idTipoCaracteristica" ColumnName="idTipoCaracteristica" />
+                <ScalarProperty Name="Caracteristica" ColumnName="Caracteristica" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoProductos">
+            <EntityTypeMapping TypeName="inventarioModel.CatalogoProductos">
+              <MappingFragment StoreEntitySet="CatalogoProductos">
+                <ScalarProperty Name="idCatalogoProducto" ColumnName="idCatalogoProducto" />
+                <ScalarProperty Name="CatalogoProducto" ColumnName="CatalogoProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="inventarioModel.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="idTipoDepartamento" ColumnName="idTipoDepartamento" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleActaProductos">
+            <EntityTypeMapping TypeName="inventarioModel.DetalleActaProductos">
+              <MappingFragment StoreEntitySet="DetalleActaProductos">
+                <ScalarProperty Name="idDetalleActaProductos" ColumnName="idDetalleActaProductos" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="IdActasProductosUsuarios" ColumnName="IdActasProductosUsuarios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleProductos">
+            <EntityTypeMapping TypeName="inventarioModel.DetalleProductos">
+              <MappingFragment StoreEntitySet="DetalleProductos">
+                <ScalarProperty Name="idDetalleProducto" ColumnName="idDetalleProducto" />
+                <ScalarProperty Name="idCaracteristica" ColumnName="idCaracteristica" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marcas">
+            <EntityTypeMapping TypeName="inventarioModel.Marcas">
+              <MappingFragment StoreEntitySet="Marcas">
+                <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modelos">
+            <EntityTypeMapping TypeName="inventarioModel.Modelos">
+              <MappingFragment StoreEntitySet="Modelos">
+                <ScalarProperty Name="idModelo" ColumnName="idModelo" />
+                <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfiles">
+            <EntityTypeMapping TypeName="inventarioModel.Perfiles">
+              <MappingFragment StoreEntitySet="Perfiles">
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="inventarioModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idTipoOrigen" ColumnName="idTipoOrigen" />
+                <ScalarProperty Name="idModelo" ColumnName="idModelo" />
+                <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+                <ScalarProperty Name="codigoSecob" ColumnName="codigoSecob" />
+                <ScalarProperty Name="codigoFinazas" ColumnName="codigoFinazas" />
+                <ScalarProperty Name="ContratoAdquisicion" ColumnName="ContratoAdquisicion" />
+                <ScalarProperty Name="CostoAdquisicion" ColumnName="CostoAdquisicion" />
+                <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCaracteristicas">
+            <EntityTypeMapping TypeName="inventarioModel.TipoCaracteristicas">
+              <MappingFragment StoreEntitySet="TipoCaracteristicas">
+                <ScalarProperty Name="idTipoCaracteristica" ColumnName="idTipoCaracteristica" />
+                <ScalarProperty Name="TipoCaracteristica" ColumnName="TipoCaracteristica" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDepartamentos">
+            <EntityTypeMapping TypeName="inventarioModel.TipoDepartamentos">
+              <MappingFragment StoreEntitySet="TipoDepartamentos">
+                <ScalarProperty Name="idTipo_Departamento" ColumnName="idTipo_Departamento" />
+                <ScalarProperty Name="TipoDepartamento" ColumnName="TipoDepartamento" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoOrigenes">
+            <EntityTypeMapping TypeName="inventarioModel.TipoOrigenes">
+              <MappingFragment StoreEntitySet="TipoOrigenes">
+                <ScalarProperty Name="idTipoOrigen" ColumnName="idTipoOrigen" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoProductos">
+            <EntityTypeMapping TypeName="inventarioModel.TipoProductos">
+              <MappingFragment StoreEntitySet="TipoProductos">
+                <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
+                <ScalarProperty Name="idCatalogoProducto" ColumnName="idCatalogoProducto" />
+                <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubicaciones">
+            <EntityTypeMapping TypeName="inventarioModel.Ubicaciones">
+              <MappingFragment StoreEntitySet="Ubicaciones">
+                <ScalarProperty Name="idUbicacion" ColumnName="idUbicacion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="inventarioModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="idUbicacion" ColumnName="idUbicacion" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Activar" ColumnName="Activar" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="ConfirContrasenia" ColumnName="ConfirContrasenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permiso">
+            <EntityTypeMapping TypeName="inventarioModel.Permiso">
+              <MappingFragment StoreEntitySet="Permiso">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+                <ScalarProperty Name="idPermiso" ColumnName="idPermiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PermisoDenegadoPorRol" TypeName="inventarioModel.PermisoDenegadoPorRol" StoreEntitySet="PermisoDenegadoPorRol">
+            <EndProperty Name="Perfiles">
+              <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+            </EndProperty>
+            <EndProperty Name="Permiso">
+              <ScalarProperty Name="idPermiso" ColumnName="idPermiso" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07612F76-529A-4497-A5A8-B2383F90E350}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccesoDatos</RootNamespace>
+    <AssemblyName>AccesoDatos</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commons\FrontUser.cs" />
+    <Compile Include="Commons\RolesPermisos.cs" />
+    <Compile Include="Gesionar\ActasDB.cs" />
+    <Compile Include="Gesionar\AniadirObjetoDB.cs" />
+    <Compile Include="Gesionar\CaracteristicasDB.cs" />
+    <Compile Include="Gesionar\CatalogoProductosDB.cs" />
+    <Compile Include="Gesionar\DepartamentosDB.cs" />
+    <Compile Include="Gesionar\DetalleProductosDB.cs" />
+    <Compile Include="Gesionar\MarcasDB.cs" />
+    <Compile Include="Gesionar\ModelosDB.cs" />
+    <Compile Include="Gesionar\PerfilesDB.cs" />
+    <Compile Include="Gesionar\ProductosDB.cs" />
+    <Compile Include="Gesionar\ResponseModel.cs" />
+    <Compile Include="Gesionar\TipoCaracteristicasDB.cs" />
+    <Compile Include="Gesionar\TipoDepartamentosDB.cs" />
+    <Compile Include="Gesionar\TipoOrigenesDB.cs" />
+    <Compile Include="Gesionar\TipoProductosDB.cs" />
+    <Compile Include="Gesionar\UbicacionesDB.cs" />
+    <Compile Include="Gesionar\UsuariosDB.cs" />
+    <Compile Include="Modelo\ActasProductosUsuarios.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Caracteristicas.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\CatalogoProductos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Departamentos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DetalleActaProductos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DetalleProductos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Item.cs" />
+    <Compile Include="Modelo\Marcas.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloDBInventario.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDBInventario.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloDBInventario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloDBInventario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDBInventario.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Modelos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Perfiles.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Permiso.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Productos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoCaracteristicas.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoDepartamentos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoOrigenes.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoProductos.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Ubicaciones.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Usuarios.cs">
+      <DependentUpon>ModeloDBInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modelo\ModeloDBInventario.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDBInventario.edmx</DependentUpon>
+      <LastGenOutput>ModeloDBInventario.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ModeloDBInventario.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDBInventario.edmx</DependentUpon>
+      <LastGenOutput>ModeloDBInventario.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Modelo\ModeloDBInventario.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloDBInventario.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\ModeloDBInventario.edmx.diagram">
+      <DependentUpon>ModeloDBInventario.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{c7dd2c3d-5f5d-43c7-abdb-69d75e85e597}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

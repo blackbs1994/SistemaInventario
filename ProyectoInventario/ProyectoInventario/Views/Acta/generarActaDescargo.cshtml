@@ -1,0 +1,122 @@
+﻿@using AccesoDatos.Modelo
+
+@model IEnumerable<Productos>
+
+
+@{
+    decimal valorTotal = 0;
+    Usuarios objetoUsuario = TempData["objetoUsuario"] as Usuarios;
+}
+<div id="divContenidoImpresion">
+    <div>
+        <center>
+            <img src="~/Images/Logo_secob.jpg" />
+            <div class="row">
+                <div><h3>ACTA DE DESCARGO DE BIENES DE LARGA DURACIÓN Y BIENES SUJETOS DE CONTROL</h3></div>
+                <div><h3>GERENCIA ADMINISTRATIVA FINANCIERA</h3></div>
+                <div><h3>BIENES VIGENTES POR CUSTODIO</h3></div>
+            </div>
+        </center>
+
+    </div>
+    <div>
+        @Html.Action("DetalleUsuario", "Usuario", objetoUsuario)
+        <br />
+
+        <hr />
+        <div class="row table">
+            <div class="col-lg-1 bg-primary">Código</div>
+            <div class="col-lg-1 bg-primary">Origen</div>
+            <div class="col-lg-1 bg-primary">Descripción</div>
+            <div class="col-lg-2 bg-primary">Observaciones</div>
+            <div class="col-lg-1 bg-primary"># Serie</div>
+            <div class="col-lg-1 bg-primary">Modelo</div>
+            <div class="col-lg-1 bg-primary">Marca</div>
+            <div class="col-lg-1 bg-primary">Costo</div>
+        </div>
+
+
+        @foreach (var objetoProducto in Model)
+        {
+
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.DisplayName(objetoProducto.codigoSecob)
+                </div>
+
+                <div class="col-lg-1">
+                    @Html.DisplayName(objetoProducto.TipoOrigenes.Origen)
+                </div>
+
+                <div class="col-lg-1">
+                    @try
+                    {
+                        @Html.DisplayName(objetoProducto.Nombre)
+                    }
+                    catch { }
+
+                </div>
+                <div class="col-lg-2">
+                    @try
+                    {
+                        @Html.DisplayName(objetoProducto.Observacion)
+                    }
+                    catch { }
+
+                </div>
+                <div class="col-lg-1">
+                    @Html.DisplayName(objetoProducto.NumeroSerie)
+                </div>
+                <div class="col-lg-1">
+                    @Html.DisplayName(objetoProducto.Modelos.Modelo)
+                </div>
+                <div class="col-lg-1">
+                    @Html.DisplayName(objetoProducto.Modelos.Marcas.Marca)
+                </div>
+                <div class="col-lg-1">
+                    @objetoProducto.CostoAdquisicion
+                    <div class="hidden">
+                        @(@valorTotal = @valorTotal + @Convert.ToDecimal(objetoProducto.CostoAdquisicion))
+                    </div>
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="row">
+            <div class="col-lg-3">
+                <b>TOTAL BIENES VIGENTES</b>
+            </div>
+            <div class="col-lg-1">
+                @Model.Count()
+            </div>
+            <div class="col-lg-4">
+                <b>TOTAL ACTIVO FIJO Y SUJETO A CONTROL ADMINISTRATIVO:</b>
+            </div>
+            <div class="col-lg-1">
+                @valorTotal
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a href="~/Acta/generarActaArchivoExcel?idobjetoActa=">Generar Excel</a>
+<div><br /></div>
+<div class="row">
+    <div class="col-lg-12">
+        <a href="javascript:void(0);" id="printButton" class="btn btn-success">Generar PDF</a>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.PrintArea.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+                $("#printButton").click(function () {
+                    var mode = 'iframe'; //popup
+                    var close = mode == "popup";
+                    var options = { mode: mode, popClose: close };
+                    $("#divContenidoImpresion").printArea(options);
+                });
+            });</script>
+}
+

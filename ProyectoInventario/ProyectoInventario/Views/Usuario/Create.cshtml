@@ -1,0 +1,146 @@
+﻿@model AccesoDatos.Modelo.Usuarios
+
+@{
+    ViewBag.Title = "Nuevo Usuario";
+
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+
+
+@{
+    //Inicio Activar
+    List<SelectListItem> activar = new List<SelectListItem>();
+    activar.Add(new SelectListItem
+    {
+        Text = "Si",
+        Value = Convert.ToString(1)
+    });
+    activar.Add(new SelectListItem
+    {
+        Text = "No",
+        Value = Convert.ToString(0)
+    });
+
+    //Fin Activar
+}
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensajeInicio
+</div>
+
+@*@Html.EditorForModel()*@
+@{
+    Html.EnableClientValidation(false);
+}
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Usuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessage("usuario_agregar", null, new { @class="label label-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Cédula", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "number" } })
+                    @Html.ValidationMessage("cedula_agregar", null, new { @class = "label label-danger" })
+                    
+                </div>
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "example@mail.ru", @required = "required" } })
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Dirección", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Extension, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Extension, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "number" } })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.PasswordFor(model => model.Contrasenia, new { htmlAttributes = new { @class = "form-control",@required="required"} })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Activar, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.Activar, activar, "Seleccione una Categoria", htmlAttributes: new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Perfiles.Perfil, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.idPerfil, ViewBag.ListaPerfiles as SelectList, "Seleccione una Categoria", htmlAttributes: new { @class = "form-control",@required="required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Ubicación", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.idUbicacion, ViewBag.ListaUbicaciones as SelectList, "Seleccione una Categoria", htmlAttributes: new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Departamentos.Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.idDepartamento, ViewBag.ListaDepartamentos as SelectList, "Seleccione una Categoria", htmlAttributes: new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Observación", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <button class="btn btn-success" type="submit" name="accion" value="guardar_usuario" > Guardar</button>
+            <a class="btn btn-primary" href="~/Usuario/Index"> Cancelar </a>
+        </div>
+    </div>
+
+}
+<div class="text-primary text-success text-center">
+    @ViewBag.MensajeExito;
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>
+
+

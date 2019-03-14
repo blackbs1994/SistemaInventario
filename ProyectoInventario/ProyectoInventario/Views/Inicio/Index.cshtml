@@ -1,0 +1,70 @@
+﻿@model List<AccesoDatos.Modelo.DetalleActaProductos>
+@{
+    ViewBag.Title = "Index";
+
+
+}
+<style type="text/css">
+    .panel .panel-heading a {
+        color: white;
+    }
+</style>
+<div class="row">
+
+    <h2 class="text-center text-success">Listado de Activos</h2>
+
+    <div class="well well-sm">
+        <div>
+            @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Actas_Puede_Crear_Nuevo_Registro))
+            {
+
+                <a class="btn btn-primary" href="~/Acta/GenerarActa">Generar Acta</a>
+            }
+            <a class="btn btn-danger fa fa-file-pdf-o" href="~/Inicio/GenerarPDF">Exportar a PDF</a>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <table class="table table-hover table-striped" id="myTableUsuario">
+        <thead>
+            <tr class="bg-primary">
+                <th>Numero de Acta</th>
+                <th>Nombre del Producto</th>
+                <th>Tipo Producto</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Numero de Serie</th>
+                <th>Usuario Asignado</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var objDetalleProductosusuarios in Model)
+            {
+                <tr>
+                    <td>@objDetalleProductosusuarios.idDetalleActaProductos</td>
+                    <td>@objDetalleProductosusuarios.Productos.Nombre</td>
+                    <td>@objDetalleProductosusuarios.Productos.TipoProductos.TipoProducto</td>
+                    <td>@objDetalleProductosusuarios.Productos.Modelos.Marcas.Marca</td>
+                    <td>@objDetalleProductosusuarios.Productos.Modelos.Modelo</td>
+                    <td>@objDetalleProductosusuarios.Productos.NumeroSerie</td>
+                    <td>@objDetalleProductosusuarios.ActasProductosUsuarios.Usuarios.Nombres  @objDetalleProductosusuarios.ActasProductosUsuarios.Usuarios.Apellidos </td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+<link href="~/Assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Assets/jquery/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTableUsuario").DataTable();
+        });
+    </script>
+    }
