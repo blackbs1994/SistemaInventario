@@ -1,0 +1,208 @@
+﻿@model  AccesoDatos.Modelo.Productos
+@{
+    ViewBag.Title = "Nuevo Producto";
+
+}
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+<script src="~/Scripts/locales/bootstrap-datepicker.es.min.js"></script>
+<link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+@{
+    //Estado
+    List<SelectListItem> listaEstados = new List<SelectListItem>();
+    listaEstados.Add(new SelectListItem
+    {
+        Text = "BUENO",
+        Value = Convert.ToString(0)
+    });
+    listaEstados.Add(new SelectListItem
+    {
+        Text = "MALO",
+        Value = Convert.ToString(1)
+    });
+
+    //Fin ESTADO
+}
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensajeInicio
+</div>
+<fieldset>
+  
+        <div class="form-horizontal">
+
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            @Html.HiddenFor(model => model.idProducto)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TipoOrigenes.Origen, htmlAttributes: new { @class = "control-label" })
+                                <div class=" dropdown">
+                                    @Html.DropDownList("idTipoOrigen", ViewBag.ListaTipoOrigenes as SelectList, "Seleccione una Tipo de Origen", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Modelos.Marcas.Marca, htmlAttributes: new { @class = "control-label" })
+                                <div class="dropdown">
+                                    @Html.DropDownList("idMarca", ViewBag.ListaMarcas as SelectList, "Seleccione una Marca", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Modelos.Modelo, htmlAttributes: new { @class = "control-label " })
+                                <div class=" dropdown">
+                                    @Html.DropDownList("idModelo", ViewBag.ListaModelos as SelectList, "Seleccione un Modelo", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Tipo Producto", htmlAttributes: new { @class = "control-label " })
+                                <div class="dropdown">
+                                    @Html.DropDownList("idTipoProducto", ViewBag.ListaTipoProductos as SelectList, "Seleccione un Tipo de Producto", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Número Serie", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.NumeroSerie, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Estado", htmlAttributes: new { @class = "control-label " })
+                                <div class="dropdown">
+                                    @Html.DropDownListFor(model => model.Estado, listaEstados, "Seleccione una Categoria", htmlAttributes: new { @class = "form-control", @readonly = "readonly",@disable="disable" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Contrato Adquisición", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.EditorFor(model => model.ContratoAdquisicion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Costo Adquisición", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.EditorFor(model => model.CostoAdquisicion, new { htmlAttributes = new { @class = "form-control", @type = "number", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Fecha Compra", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.EditorFor(model => model.fechaCompra, new { htmlAttributes = new { @class = "form-control datepicker", @disabled = "disabled" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Código Secob", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.EditorFor(model => model.codigoSecob, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Código Finazas", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.EditorFor(model => model.codigoFinazas, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Observación", htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.TextAreaFor(model => model.Observacion, new { @class = "form-control", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div id="divListaCaracateristicasFinal">
+                                @foreach (var detallePoductoTemporal in Model.DetalleProductos)
+                                {
+                                    <input type=hidden value="@detallePoductoTemporal.idCaracteristica" id=caracteristicaAnadirProducto name=caracteristicaAnadirProducto />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    <h2 class="text-center text-success">Características</h2>
+   
+
+    <div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Tipo Caracteristica</th>
+                    <th>Caracteristica</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producoDetalleTemporal in Model.DetalleProductos)
+                {
+                    <tr id="idCaracteristicaSeleccionadaTabla" name="idCaracteristicaSeleccionadaTabla" value="@producoDetalleTemporal.idCaracteristica">
+                        <td> @producoDetalleTemporal.Caracteristicas.TipoCaracteristicas.TipoCaracteristica</td>
+                        <td>@producoDetalleTemporal.Caracteristicas.Caracteristica</td>
+                       
+                    </tr>
+                }
+            </tbody>
+        </table>
+       
+    </div>
+    
+    <center><a class="btn btn-primary" href="~/Producto/Index"> Regresar </a></center>
+</fieldset>
+
+
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        language: 'es',
+        todayHighlight: true
+    });
+
+    $("#btnGuardarFormulario").click(function () {
+        var divFormularioCaracteristicas = $("#divListaCaracateristicasFinal");
+        var inputsIdCaracteristicasFinal = divFormularioCaracteristicas.find(":input");
+        if (inputsIdCaracteristicasFinal.length > 0) {
+            $("#formularioUpdateProducto").submit();
+        }
+        else {
+            alert("Por favor añada una característica.");
+        }
+    });
+
+        $('#descripcionCaracteristica').autocomplete({
+        minLength: 3,
+        source: '@Url.Action("BuscarCaracteristicasPorDescripcion", "Caracteristicas")',
+            select: function (event, ui) {
+                $('#idCaracteristaSeleccionada').val(ui.item.id);
+            $('#descripcionCaracteristica').val(ui.item.value);
+        },
+        classes: {
+            "ui-autocomplete": "highlight"
+        }
+    });
+
+
+    function anadirCaracteristiscaFinal() {
+
+        var divIDCaracteristicas = $("#resultadosAnadirCaracteristica");
+        var inputsIdCaracteristicas = divIDCaracteristicas.find(":input");
+        var divFormularioCaracteristicas = $("#divListaCaracateristicasFinal");
+        divFormularioCaracteristicas.empty();
+
+        inputsIdCaracteristicas.each(function () {
+            divFormularioCaracteristicas.append("<input type=hidden value=" + $(this).val() + " id=caracteristicaAnadirProducto name=caracteristicaAnadirProducto />");
+            console.log("valor: " + $(this).val());
+        });
+
+        $("#descripcionCaracteristica").val("");
+    }
+</script>

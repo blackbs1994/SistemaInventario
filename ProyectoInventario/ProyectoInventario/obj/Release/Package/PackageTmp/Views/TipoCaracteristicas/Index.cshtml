@@ -1,0 +1,58 @@
+﻿@model List<AccesoDatos.Modelo.TipoCaracteristicas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2 class="text-center text-success">Listado de Tipo Características</h2>
+<div class="well well-sm">
+    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Crear_Nuevo_Registro))
+    {
+        <a class="btn btn-primary" href="~/TipoCaracteristicas/Create">Nuevo</a>
+    }
+    </div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th colspan="3">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objTipoCaracteristicas in Model)
+        {
+            <tr>
+                <td>@objTipoCaracteristicas.idTipoCaracteristica</td>
+                <td>@objTipoCaracteristicas.TipoCaracteristica</td>
+                <td>@objTipoCaracteristicas.Descripcion</td>
+                <td>
+                    <a class="btn btn-success" href="~/TipoCaracteristicas/Find/@objTipoCaracteristicas.idTipoCaracteristica"><span class="glyphicon glyphicon-eye-open"></span></a>
+
+                </td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Editar_Registro))
+                    {
+                        <a class="btn btn-info" href="/TipoCaracteristicas/Update/@objTipoCaracteristicas.idTipoCaracteristica"><span class="fa fa-edit"></span></a>
+                    }
+                    </td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Eliminar_Registro))
+                    {
+                        if (objTipoCaracteristicas.idTipoCaracteristica > 0)
+                        {
+                            <a onclick="return confirm('Esta seguro de elimnar este registro?');" class="btn btn-danger" href="~/TipoCaracteristicas/Delete/@objTipoCaracteristicas.idTipoCaracteristica"><span class="fa fa-book"></span></a>
+                        }                        
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>

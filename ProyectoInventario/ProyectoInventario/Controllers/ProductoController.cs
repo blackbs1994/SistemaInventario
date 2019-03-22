@@ -37,7 +37,7 @@ namespace ProyectoInventario.Controllers
 
         }
         [HttpPost]
-        public ActionResult Create(Productos objetoProductos, int[] caracteristicaAnadirProducto, string accion)
+        public ActionResult Create(Productos objetoProductos, int[] caracteristicaAnadirProducto)
         {
             ProductosDB objProductoDB = new ProductosDB();
             Usuarios usuarioSesionActual = (Usuarios)Session["usuarioSesion"];
@@ -55,25 +55,14 @@ namespace ProyectoInventario.Controllers
                 objetoDetalleProductos.idCaracteristica = idDetalleProductoCaracteristica;
                 listaDetalleProductos.Add(objetoDetalleProductos);
             }
-
-            if(accion == "guardar_producto")
+            try
             {
-                if (objProductoDB.ExisteNumeroSerie(objetoProductos.NumeroSerie))
-                {
-                    ModelState.AddModelError("agregar_numeroserie", "El numero de serie ingresado ya existe");
-                    return View("Create");
-                }
-                else
-                {
-                    objetoProductos.DetalleProductos = listaDetalleProductos;
-                    bool banderaCrear = ProductosDB.guardarProductos(objetoProductos);
+                objetoProductos.DetalleProductos = listaDetalleProductos;
+                bool banderaCrear = ProductosDB.guardarProductos(objetoProductos);
 
-                    MostrarMensajes(banderaCrear);
-                    
-
-                }
+                MostrarMensajes(banderaCrear);
             }
-            else
+            catch(Exception)
             {
                 throw new Exception("Accion no definida..");
             }

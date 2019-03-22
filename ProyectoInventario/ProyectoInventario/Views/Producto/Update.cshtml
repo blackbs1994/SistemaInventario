@@ -43,13 +43,7 @@
                     <div class="panel-body">
                         <div class="col-md-6">
                             @Html.HiddenFor(model => model.idProducto)
-                            <div class="form-group">
-
-                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 @Html.LabelFor(model => model.TipoOrigenes.Origen, htmlAttributes: new { @class = "control-label" })
                                 <div class=" dropdown">
@@ -179,7 +173,7 @@
                     <th colspan="1">Operaciones</th>
 
                 </tr>
-            </thead>           
+            </thead>
         </table>
         <div id="resultadosAnadirCaracteristica">
             @foreach (var producoDetalleTemporal in Model.DetalleProductos)
@@ -193,16 +187,16 @@
                         @Html.DisplayFor(modelItem => producoDetalleTemporal.Caracteristicas.Caracteristica)
                     </div>
                     <div class="col-lg-2">
-                         
+
                         <a id="eliminarCaracteristica" name="eliminarCaracteristica" class="btn btn-danger" style="cursor:pointer;" onclick="eliminarCaracteristica(@producoDetalleTemporal.idCaracteristica)">Eliminar</a>
                     </div>
                 </div>
             }
         </div>
     </div>
-    
+
     <center>
-       
+
         <button type="submit" class="btn btn-success" value="Guardar" id="btnGuardarFormulario" name="btnGuardarFormulario">Guardar</button>
         <a class="btn btn-primary" href="~/Producto/Index"> Cancelar </a>
 

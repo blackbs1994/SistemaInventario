@@ -1,0 +1,16 @@
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\AccesoDatos.dll.config
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\AccesoDatos.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\AccesoDatos.pdb
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\EntityFramework.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\Helper.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\Newtonsoft.Json.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\Helper.pdb
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\EntityFramework.xml
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\bin\Release\Newtonsoft.Json.xml
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Release\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Release\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Release\AccesoDatos.csproj.CopyComplete
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Release\AccesoDatos.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\AccesoDatos\obj\Release\AccesoDatos.pdb

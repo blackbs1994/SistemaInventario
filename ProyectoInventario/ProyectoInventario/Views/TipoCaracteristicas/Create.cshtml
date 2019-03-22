@@ -25,14 +25,14 @@
             <div class="form-group">
                 @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @required="required" } })
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
         </fieldset>
 
         <div class="form-actions col-md-offset-2">
-            <input class="btn btn-primary" type="submit" name="btnguardar" value="Guardar" />|
-            @Html.ActionLink("Regresar al Listado", "Index")
+            <input class="btn btn-success" type="submit" name="btnguardar" value="Guardar" />|
+            <a class="btn btn-primary" href="~/TipoCaracteristicas/Index"> Cancelar </a>
         </div>
     </div>
 

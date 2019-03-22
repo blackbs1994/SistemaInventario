@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Generar Acta";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div class="well well-sm text-primary text-center">
+    <h2>Consulta Bienes por Custodio</h2>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Buscar Por Identificación
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            @using (Ajax.BeginForm("EncontrarActivosPorIdentificacion", "Producto", null,
+             new AjaxOptions
+             {
+                 HttpMethod = "Post",
+                 UpdateTargetId = "cargarDatosUsuario_Ajax",
+                 LoadingElementId = "image_loading",
+                 InsertionMode = InsertionMode.Replace
+
+             }, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="col-lg-offset-1">
+                    @Html.Label("Cédula", new { @class = "control-label" })
+                </div>
+                <div class="col-lg-3">
+                    @Html.Editor("numeroIdentificacion", new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+                <div class="col-lg-1">
+                    <input type="submit" class="btn btn-success" value="Buscar" />
+                </div>
+
+            }
+        </div>
+
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <img id="image_loading" src="~/Images/loading.gif" width="30" height="30" style="display:none" />
+            </div>
+        </div>
+        <div class="row table">
+            <div class="col-lg-1 bg-primary">Código</div>
+            <div class="col-lg-1 bg-primary">Origen</div>
+            <div class="col-lg-1 bg-primary">Descripción</div>
+            <div class="col-lg-2 bg-primary">Observaciones</div>
+            <div class="col-lg-1 bg-primary"># Serie</div>
+            <div class="col-lg-1 bg-primary">Modelo</div>
+            <div class="col-lg-1 bg-primary">Marca</div>
+            <div class="col-lg-1 bg-primary">Costo</div>
+            <div class="col-lg-1 bg-primary">Acción</div>
+        </div>
+        <div class="row">
+            <div id="cargarDatosUsuario_Ajax"></div>
+        </div>
+    </div>
+</div>

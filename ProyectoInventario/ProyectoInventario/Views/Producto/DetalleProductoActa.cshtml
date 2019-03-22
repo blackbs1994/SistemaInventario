@@ -27,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.TipoOrigenes.Origen)
             </div>
             <div class="col-lg-1">
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.TipoProductos.TipoProducto)
             </div>
             <div class="col-lg-2">
                 @Html.DisplayFor(modelItem => item.Observacion)
@@ -35,7 +35,7 @@
             <div class="col-lg-1">
                 @Html.DisplayFor(modelItem => item.NumeroSerie)
             </div>
-            <div class="col-lg-1">
+            <div class="col-lg-2">
                 @Html.DisplayFor(modelItem => item.Modelos.Modelo)
             </div>
             <div class="col-lg-1">
@@ -45,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.CostoAdquisicion)
             </div>
             <div class="col-lg-2">
-                <div id="eliminarProducto" name="eliminarProducto" class="btn-link" style="cursor:pointer;" onclick="eliminarProducto(@item.idProducto)">Eliminar</div>
+                <div id="eliminarProducto" name="eliminarProducto" class="btn btn-danger" style="cursor:pointer;" onclick="eliminarProducto(@item.idProducto)">Eliminar</div>
             </div>
         </div>
     }

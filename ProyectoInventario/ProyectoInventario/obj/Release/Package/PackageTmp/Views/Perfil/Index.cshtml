@@ -1,0 +1,35 @@
+﻿@model List<AccesoDatos.Modelo.Perfiles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-success">Listado de Categorias</h2>
+<div class="well well-sm"><a class="btn btn-primary" href="~/Perfil/Create">Nuevo</a></div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th colspan="3">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objPerfiles in Model)
+        {
+            <tr>
+                <td>@objPerfiles.IdPerfil</td>
+                <td>@objPerfiles.Perfil</td>
+                <td>@objPerfiles.Descripcion</td>
+                <td><a class="btn btn-success" href="~/Perfil/Find/@objPerfiles.IdPerfil"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td><a class="btn btn-info" href="~/Perfil/Update/@objPerfiles.IdPerfil"><span class="fa fa-edit"></span></a></td>
+                <td><a class="btn btn-danger" href="~/Perfil/Delete/@objPerfiles.IdPerfil"><span class="fa fa-book"></span></a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>

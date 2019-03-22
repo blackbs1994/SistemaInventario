@@ -22,3 +22,8 @@ D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\bin\Deb
 D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
 D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.dll
 D:\andres\Escritorio\SistemaInventario - copia\ProyectoInventario\Helper\obj\Debug\Helper.pdb
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\bin\Debug\Helper.pdb
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.dll
+C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Debug\Helper.pdb

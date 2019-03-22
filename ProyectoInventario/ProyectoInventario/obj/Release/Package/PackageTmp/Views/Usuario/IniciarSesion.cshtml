@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Ingresar";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+
+}
+<div id="wrapper">
+    <br />
+    <br />
+    @if (TempData["MensajeErrorIngreso"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade in" role="alert" id="divMensajeError">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            <p>
+                @TempData["MensajeErrorIngreso"]
+            </p>
+        </div>
+    }
+
+   
+
+    @using (@Html.BeginForm("IniciarSesion", "Usuario", FormMethod.Post, new { @name = "formularioIngreso", @id = "formularioIngreso" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="container">
+            <div class="row vertical-offset-100">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Por favor ingrese la información.</h3>
+                        </div>
+                        <div>
+                            <div class="col-md-3">
+                                <img src="~/Images/gravatar.png" class="img-responsive" />
+                            </div>
+                            <div class="col-md-9">
+                                <div class=" text-left">
+                                    <h5>SICA</h5>
+                                </div>
+                                <div>
+                                    <h6>
+                                        Sistema Integral de Control de Activos
+                                    </h6>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="form-group">                                
+                                    
+                                    @Html.TextBox("nombreUsuario", null, new { @class = "form-control", @placeholder = "Nombre Usuario", @required = "required" })                                
+                         
+                            </div>
+                            <div class="form-group">
+                                @Html.Password("contrasena", "", new { @class = "form-control", @placeholder = "Contraseña", @required = "required" })
+                            </div>
+                            @*<div class="btn-link">
+                                @Html.ActionLink("Olvidó su contraseña:", "OlvidoContrasenaUsuario", "Login", new { @class = "btn btn-link" })
+                                <center><img src="~/Images/loading.gif" width="30" height="30" class="hidden" id="image_loading" /></center>
+                            </div>*@
+                            <div class="form-group">
+                                <div >
+                                    <input class="btn btn-success btn-block" type="submit" value="Ingresar" id="idIngresarAplicacion">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    }
+</div>
+<style>
+    .validation-summary-errors {
+        color: red;
+    }
+</style>

@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "Generar Acta";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div class="modal" id="modalProductoDuplicado">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <center><h3>Mensaje</h3></center>
+    </div>
+    <div class="modal-body">
+        <div id="modalTextoProductoDuplicado">Usted esta añadiendo un producto duplicado. </div>
+    </div>
+    <div class="modal-footer">
+        <center><button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button></center>
+    </div>
+</div>
+<div class="well well-sm text-primary text-center">
+    Generar nueva acta
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Añadir Responsable
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            @using (Ajax.BeginForm("busarUsuario", "Usuario", null,
+             new AjaxOptions
+             {
+                 HttpMethod = "Post",
+                 UpdateTargetId = "cargarDatosUsuario_Ajax",
+                 LoadingElementId = "image_loading",
+                 InsertionMode = InsertionMode.Replace,
+                 OnSuccess = "aniadirUsuarioResponsable"
+
+             }, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="col-lg-offset-1">
+                    @Html.Label("Cédula", new { @class = "control-label" })
+                </div>
+                <div class="col-lg-3">
+                    @Html.Editor("numeroCedula", new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+                <div class="col-lg-1">
+                    <input type="submit" class="btn btn-success" value="Buscar" />
+                </div>
+                <div class="col-lg-2">
+                    <a class="btn btn-default" href="@Url.Action("Create", "Usuario")" target="_blank">Crear nuevo Usuario</a>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <img id="image_loading" src="~/Images/loading.gif" width="30" height="30" style="display:none" />
+            </div>
+        </div>
+        <div class="row">
+            <div id="cargarDatosUsuario_Ajax"></div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Añadir Activos
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            @using (Ajax.BeginForm("FindProductoPorTipoBusqueda", "Producto", null,
+             new AjaxOptions
+             {
+                 HttpMethod = "Post",
+                 UpdateTargetId = "cargarDatosProductos_Ajax",
+                 LoadingElementId = "image_loading",
+                 InsertionMode = InsertionMode.InsertAfter,
+                 OnBegin = "validarExistencia",
+                 OnSuccess = "anadirProductosFinal"
+
+             }, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="col-lg-3">
+                    <select id="tipoBusqueda" name="tipoBusqueda" class="form-control">
+                        <option value="Serie"># Serie</option>
+                        <option value="CodigFinanzas">Código Finanzas</option>
+                        <option value="CodigoSecob">Código SECOB</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    @Html.Editor("datoBusqueda", new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+                <div class="col-lg-1">
+                    <input type="submit" class="btn btn-success" value="Añadir" id="btnAniadir" name="btnAniadir" />
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <img id="image_loading" src="~/Images/loading.gif" width="30" height="30" style="display:none" />
+            </div>
+        </div>
+        <br />
+        <div class="row table">
+            <div class="col-lg-1 bg-primary">Código</div>
+            <div class="col-lg-1 bg-primary">Origen</div>
+            <div class="col-lg-3 bg-primary">Nombre</div>           
+            <div class="col-lg-1 bg-primary"># Serie</div>
+            <div class="col-lg-2 bg-primary">Modelo</div>
+            <div class="col-lg-1 bg-primary">Marca</div>
+            <div class="col-lg-1 bg-primary">Costo</div>
+            <div class="col-lg-1 bg-primary">Acción</div>
+        </div>
+        <div id="cargarDatosProductos_Ajax">
+
+        </div>
+        @using (Html.BeginForm("GenerarActa", "Acta", FormMethod.Post, new { @name = "formularioCrearActa", @id = "formularioCrearActa" }))
+        {
+            <div class="form-horizontal">
+                <fieldset>
+                    <div id="divListaProductosFinal"></div>
+                    <input type="hidden" id="idUsuarioResponsable" name="idUsuarioResponsable" value="0" />
+                    <center>
+                        @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Actas_Puede_Crear_Nuevo_Registro))
+                        {
+                            <input type="submit" class="btn btn-success" value="Guardar e Imprimir" id="btnGuardarFormulario" name="btnGuardarFormulario" />
+                        }
+                        <a class="btn btn-primary" href="~/Acta/GenerarActa"> Cancelar </a>
+                    </center>
+                </fieldset>
+            </div>
+
+        }
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+<script type="text/javascript">
+    function aniadirUsuarioResponsable() {
+        var idUsuarioResponsable = $("#idUsuario").val();
+        $("#idUsuarioResponsable").val(idUsuarioResponsable);
+    }
+
+    function eliminarProducto(idProductoEliminar) {
+
+        var divIDProductos = $("#cargarDatosProductos_Ajax");
+        var inputsIdProductos = divIDProductos.find(":input");
+
+        inputsIdProductos.each(function (e) {
+            if (idProductoEliminar == $(this).val()) {
+                //inputsIdProductos.remove($(this));
+                $(this).parent().remove();
+                return false;
+            }
+        });
+
+        var divFormularioProductos = $("#divListaProductosFinal");
+        var inputsIdProductosOcultos = divFormularioProductos.find(":input");
+        inputsIdProductosOcultos.each(function (e) {
+            if (idProductoEliminar == $(this).val()) {
+                //inputsIdProductos.remove($(this));
+                $(this).remove();
+                return false;
+            }
+        });
+
+    }
+
+    function anadirProductosFinal() {
+
+        var divIDProductos = $("#cargarDatosProductos_Ajax");
+        var inputsIdProductos = divIDProductos.find(":input");
+        var divFormularioProductos = $("#divListaProductosFinal");
+        divFormularioProductos.empty();
+
+        try {
+            var contenidohtml = $("#textoMensajeAlerta").html();
+            if (contenidohtml.length > 0) {
+                $("#modalMensajesAlertas").modal();
+            }
+        } catch (e) {
+        }
+
+
+        inputsIdProductos.each(function () {
+            if ($(this).val() !== "") {
+                divFormularioProductos.append("<input type=hidden value=" + $(this).val() + " id=productosAniadirFinal name=productosAniadirFinal />");
+                console.log("Campo aniadir valor: " + $(this).val());
+            }
+
+        });
+    }
+
+    function validarExistencia() {
+        $("#divMensajeProductoActaNoEncontrado").remove();
+        $("#modalMensajesAlertas").remove();
+        $("#modalMensajesAlertas").html("");
+
+        var camposDivsExistentes = $("#cargarDatosProductos_Ajax").find("div");
+
+        camposDivsExistentes.each(function () {
+            if ($.trim($(this).html()) === $("#datoBusqueda").val()) {
+                $("#modalProductoDuplicado").modal();
+                $(this).parent().remove();
+            }
+        });
+
+    }
+
+    $("#formularioCrearActa").submit(function () {
+        var divFormularioProductos = $("#divListaProductosFinal");
+        var inputsIdProductosFinal = divFormularioProductos.find(":input");
+        var idUsuarioResponsable = $("#idUsuarioResponsable").val();
+        if (inputsIdProductosFinal.length <= 0) {
+            alert("Debe añadir al menos un producto.");
+            return false;
+        }
+
+        if (idUsuarioResponsable == "0") {
+            alert("Debe añadir un responsable.");
+            return false;
+        }
+
+        return true;
+    });
+</script>

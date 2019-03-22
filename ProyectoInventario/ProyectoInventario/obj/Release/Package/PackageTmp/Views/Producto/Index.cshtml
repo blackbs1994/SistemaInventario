@@ -1,0 +1,78 @@
+﻿
+@model List<AccesoDatos.Modelo.Productos>
+@{
+    ViewBag.Title = "Lista de Productos";
+}
+
+
+<h2 class="text-center text-success">Listado de Productos</h2>
+
+<div class="well well-sm">
+    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Crear_Nuevo_Registro))
+    {
+        <a class="btn btn-primary" href="~/Producto/Create">Nuevo</a>
+    }
+</div>
+
+<table class="table table-hover table-striped" id="myTableProducto">
+    <thead>
+        <tr class="bg-primary">
+            <th>Producto</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Fecha de Compra</th>
+            <th>Codigo de Secob</th>
+            <th>Numero de Serie</th>
+            <th>Coto de Compra</th>
+            <th></th>
+            <th></th>           
+            <th>Operaciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objProducto in Model)
+        {
+            <tr>                
+                <td>@objProducto.TipoProductos.TipoProducto</td>
+                <td>@objProducto.Modelos.Marcas.Marca</td>
+                <td>@objProducto.Modelos.Modelo</td>
+                <td>@objProducto.fechaCompra</td>
+                <td>@objProducto.codigoSecob</td>
+                <td>@objProducto.NumeroSerie</td>
+                <td>@objProducto.CostoAdquisicion</td>
+                <td><a class="btn btn-success" href="~/Producto/FindProducto/@objProducto.idProducto"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Editar_Registro))
+                    {
+                    <a class="btn btn-info" href="~/Producto/Update/@objProducto.idProducto"><span class="fa fa-edit"></span></a>
+                        
+                    }
+                </td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Eliminar_Registro))
+                    {
+                        if (@objProducto.idProducto > 0)
+                        {
+                            <a onclick="return confirm('Esta seguro de elimnar este registro?');" class="btn btn-danger" href="~/Producto/DeleteProducto/@objProducto.idProducto"><span class="fa fa-book"></span></a>
+                        }
+                    }
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<link href="~/Assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Assets/jquery/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTableProducto").DataTable();
+        });
+    </script>
+}
+
+

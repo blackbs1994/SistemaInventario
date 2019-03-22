@@ -1,0 +1,67 @@
+﻿@model List<AccesoDatos.Modelo.Caracteristicas>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-success">Listado de Características</h2>
+
+<div class="well well-sm">
+    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Crear_Nuevo_Registro))
+    {
+        <a class="btn btn-primary" href="~/Caracteristicas/Create">Nuevo</a>
+    }
+</div>
+<table class="table table-hover table-striped" id="myTableCaracteristicas">
+    <thead>
+        <tr class="bg-primary">
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th></th>
+            <th></th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objCaracteristicas in Model)
+        {
+            <tr>
+                <td>@objCaracteristicas.idCaracteristica</td>
+                <td>@objCaracteristicas.TipoCaracteristicas.TipoCaracteristica</td>
+                <td>@objCaracteristicas.Caracteristica</td>
+                <td>@objCaracteristicas.Descripcion</td>
+                <td><a class="btn btn-success" href="~/Caracteristicas/Find/@objCaracteristicas.idCaracteristica"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Editar_Registro))
+                    {
+                        <a class="btn btn-info" href="~/Caracteristicas/Update/@objCaracteristicas.idCaracteristica"><span class="fa fa-edit"></span></a>
+                    }
+                </td>
+
+                <td>
+                    @if (AccesoDatos.Commons.FrontUser.TienePermiso(AccesoDatos.Commons.RolesPermisos.Activo_Puede_Eliminar_Registro))
+                    {
+                        if (objCaracteristicas.idCaracteristica > 0)
+                        {
+                            <a onclick="return confirm('Esta seguro de elimnar este registro?');" class="btn btn-danger" href="~/Caracteristicas/Delete/@objCaracteristicas.idCaracteristica"><span class="fa fa-book"></span></a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MensajeError;
+</div>
+<link href="~/Assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Assets/jquery/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTableCaracteristicas").DataTable();
+        });
+    </script>
+}

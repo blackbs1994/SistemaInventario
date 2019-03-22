@@ -2,7 +2,7 @@
 @{
     decimal valorTotal = 0;
     AccesoDatos.Modelo.Usuarios usuario = new AccesoDatos.Gesionar.UsuariosDB().Obtener(Helper.SessionHelper.GetUser());
-    
+
 }
 
 
@@ -104,15 +104,15 @@
     </div>
 </div>
 
-<div>
+<div id="pieFirma">
     <h4>Para Constancia de este documento</h4>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <b>Entrega</b>
         <br />
         <br />
         <br />
         <br />
-        <div class="col col-md-6">
+        <div class="col col-md-4">
             <a>_________________________________________________</a>
             <h6>Firma: @usuario.Nombres @usuario.Apellidos</h6>
             <h6>Numero de Cedula: @usuario.Cedula</h6>
@@ -125,14 +125,14 @@
 
     </div>
     <div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div></div>
             <b>Recive</b>
             <br />
             <br />
             <br />
             <br />
-            <div class="col col-md-6">
+            <div class="col col-md-4">
 
                 <a>_________________________________________________</a>
                 <h6>Firma: @Model.Usuarios.Nombres @Model.Usuarios.Apellidos </h6>
@@ -170,7 +170,7 @@
                 var mode = 'iframe'; //popup
                 var close = mode == "popup";
                 var options = { mode: mode, popClose: close };
-                $("#divContenidoImpresion").printArea(options);
+                $("#divContenidoImpresion,#pieFirma").printArea(options);
             });
         });
     </script>

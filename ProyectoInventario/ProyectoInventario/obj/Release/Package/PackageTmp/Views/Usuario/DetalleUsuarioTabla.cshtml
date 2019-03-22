@@ -1,0 +1,62 @@
+﻿@model AccesoDatos.Modelo.Usuarios
+
+@{
+    ViewBag.Title = "Nuevo Usuario";
+    Layout = "";
+}
+@{
+    //Inicio Activar
+    List<SelectListItem> activar = new List<SelectListItem>();
+    activar.Add(new SelectListItem
+    {
+        Text = "Si",
+        Value = Convert.ToString(1)
+    });
+    activar.Add(new SelectListItem
+    {
+        Text = "No",
+        Value = Convert.ToString(0)
+    });
+
+    //Fin Activar
+}
+@if (Model != null)
+{
+<table>
+    <tr>
+
+        @Html.HiddenFor(model => model.idUsuario)
+
+        <td class="col-md-2">
+            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </td>
+        <td class="col-md-2">
+            @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+        </td>
+
+        <td class="col-md-2">
+            @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </td>
+
+        
+    </tr>
+</table>
+    
+}
+else
+{
+<table>
+    <tr class="row">
+        <td class="col-md-6">
+            <div class="alert alert-danger">
+                No se encontró ningun usuario que corresponda al número ingresado.
+            </div>
+        </td>
+    </tr>
+</table>
+    
+}

@@ -328,6 +328,7 @@
     <Content Include="inventarioDataSet.xss">
       <DependentUpon>inventarioDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -493,7 +494,6 @@
     <Content Include="Views\Modelo\EditarModelo.cshtml" />
     <Content Include="Views\Modelo\EliminarModelo.cshtml" />
     <Content Include="Views\Modelo\Index.cshtml" />
-    <None Include="Views\Producto\Update.cshtml" />
     <Content Include="Views\TipoProducto\UpdateTipoProducto.cshtml" />
     <Content Include="Views\TipoProducto\DeleteTipoProducto.cshtml" />
     <Content Include="Views\TipoProducto\FindTipoProducto.cshtml" />
@@ -516,6 +516,7 @@
     <Content Include="Views\Usuario\FindUsuario.cshtml" />
     <Content Include="Views\Usuario\Update.cshtml" />
     <Content Include="Views\Usuario\UpdateCustodio.cshtml" />
+    <Content Include="Views\Producto\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
