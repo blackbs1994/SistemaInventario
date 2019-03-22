@@ -4,3 +4,9 @@ C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\ob
 C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.csproj.CoreCompileInputs.cache
 C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.dll
 C:\Users\aabravo\Documents\GitHub\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Release\Helper.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\bin\Release\Helper.pdb
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.csprojAssemblyReference.cache
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.csproj.CoreCompileInputs.cache
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.dll
+D:\andres\Source\Workspaces\SistemaInventario\ProyectoInventario\Helper\obj\Release\Helper.pdb
